@@ -145,7 +145,7 @@ class appAdmin extends React.Component {
           <link rel="stylesheet" type="text/css" href="/css/user/user.css" />
         </Helmet>
         <div>
-          <Upload {...props} fileList={this.state.fileList}>
+          <Upload {...props}>
             <Button>
               <Icon type="upload" /> 选择文件
             </Button>
