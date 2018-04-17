@@ -55,6 +55,16 @@ class appAdmin extends React.Component {
       }
     })
   }
+  handleChange = (info) => {
+    let fileList = info.fileList;
+
+    // 1. 上传列表数量的限制
+    fileList = fileList.slice(-2);
+    this.setState({ 
+      fileList,
+      uploadShow:false,
+    });
+  }
   handleUpload= () => {
     //1、Content-Type修改为'multipart/form-data',
     //2、超时请求
@@ -104,6 +114,7 @@ class appAdmin extends React.Component {
       action:'url',
       multiple:false,
       supportServerRender:true,
+      onChange: this.handleChange,
       onRemove: (file) => {
         this.setState(({ fileList }) => {
           const index = fileList.indexOf(file);
